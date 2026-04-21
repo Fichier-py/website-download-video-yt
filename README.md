@@ -1,55 +1,55 @@
 # 🎬 YouTube Downloader Flask
 
-Serveur web simple en Flask permettant de télécharger des vidéos YouTube avec yt-dlp, exposé publiquement via ngrok.
+Simple Flask web server for downloading YouTube videos using yt-dlp, exposed publicly via ngrok.
 
-## ⚙️ Fonctionnement
-Page web (index.html) avec URL + qualité  
-Requête POST vers /download  
-Téléchargement via yt-dlp  
-Envoi du fichier directement au client  
-Suppression automatique après 5 minutes  
-Accès externe grâce à ngrok  
+## ⚙️ How it works
+Web page (index.html) with URL + quality selection  
+POST request to /download  
+Download handled via yt-dlp  
+File sent directly to the client  
+Automatic deletion after 5 minutes  
+External access via ngrok  
 
 ## 📦 Installation
 
-### 1. Cloner le repo
-git clone https://github.com/ton-repo/yt-downloader-flask.git  
+### 1. Clone the repo
+git clone https://github.com/your-repo/yt-downloader-flask.git  
 cd yt-downloader-flask  
 
-### 2. Créer un environnement virtuel
+### 2. Create virtual environment
 python -m venv venv  
 
-### 3. Activer l’environnement
+### 3. Activate environment
 
-Windows :  
+Windows:  
 venv\Scripts\activate  
 
-Linux / Mac :  
+Linux / Mac:  
 source venv/bin/activate  
 
-### 4. Installer les dépendances
+### 4. Install dependencies
 pip install -r requirements.txt  
 
 ## 🔑 Configuration
 
 ### ngrok
-Crée un compte : https://ngrok.com  
-Récupère ton token  
-Remplace dans le code :  
-ngrok.set_auth_token("TON_TOKEN_ICI")  
+Create an account: https://ngrok.com  
+Get your auth token  
+Replace in code:  
+ngrok.set_auth_token("YOUR_TOKEN_HERE")  
 
-### Cookies YouTube (recommandé)
-Exporte tes cookies (extension navigateur)  
-Place le fichier cookies.txt à la racine  
+### YouTube cookies (recommended)
+Export cookies using a browser extension  
+Place cookies.txt at the project root  
 
-## 🚀 Lancement
+## 🚀 Run
 
 python app.py  
 
-URL publique générée :  
+Public URL generated:  
 https://xxxx.ngrok.io  
 
-## 📁 Structure du projet
+## 📁 Project structure
 
 /project  
 │── app.py  
@@ -58,3 +58,5 @@ https://xxxx.ngrok.io
 │── /downloads  
 │── /templates  
 │   └── index.html  
+│── /static  
+│   └── script.js  
