@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Downloader</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family: system-ui, Arial;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: radial-gradient(circle at top, #1b2a4a, #0b0f19);
+    color:white;
+    padding:20px;
+}
+
+.card{
+    width:100%;
+    max-width:420px;
+    background: rgba(18,26,42,0.95);
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 25px 80px rgba(0,0,0,0.6);
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+    font-size:22px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+    margin-bottom:12px;
+    background:#0e1524;
+    color:white;
+}
+
+input:focus{
+    box-shadow:0 0 0 2px #ff2d55;
+}
+
+.format{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:8px;
+    margin:12px 0;
+}
+
+.format div{
+    padding:10px;
+    text-align:center;
+    border-radius:10px;
+    background:#0e1524;
+    cursor:pointer;
+    font-size:13px;
+    color:#9aa4b2;
+    transition:0.2s;
+    user-select:none;
+}
+
+.format div:hover{
+    transform:scale(1.05);
+}
+
+.format .active{
+    background:#ff2d55;
+    color:white;
+    box-shadow:0 0 15px rgba(255,45,85,0.4);
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#ff2d55;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+button:hover{
+    transform:scale(1.03);
+    box-shadow:0 10px 25px rgba(255,45,85,0.3);
+}
+
+@media (max-width: 480px){
+    .card{
+        padding:18px;
+    }
+
+    h2{
+        font-size:18px;
+    }
+
+    .format{
+        grid-template-columns:repeat(2, 1fr);
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2>Downloader</h2>
+
+    <form method="POST" action="/download">
+
+        <input type="text" name="url" placeholder="Colle ton lien ici" required>
+
+        <input type="hidden" name="quality" id="qualityInput" value="720">
+
+        <div class="format">
+            <div data-q="1080">1080p</div>
+            <div data-q="720" class="active">720p</div>
+            <div data-q="480">480p</div>
+            <div data-q="360">360p</div>
+        </div>
+
+        <button type="submit">Télécharger</button>
+
+    </form>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
